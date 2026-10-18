@@ -118,9 +118,8 @@ export const birthdayConfig = {
 
   /**
    * Real voice notes. Point `src` at a file in public/audio/wishes/.
-   * Two WhatsApp voice notes are wired in below; the third friend still
-   * shows a clean "not uploaded yet" state until you add hers.
-   * (Which friend sent which note? Swap the two `src` lines if needed.)
+   * All three WhatsApp voice notes are wired in below.
+   * (Which friend sent which note? Swap the `src` lines if needed.)
    */
   voiceWishes: [
     {
@@ -134,7 +133,7 @@ export const birthdayConfig = {
     {
       id: 'wish-2',
       friendName: 'Gaytri',
-      src: '', // drop her note in public/audio/wishes/ and set the path here
+      src: '/audio/wishes/WhatsApp Ptt 2026-10-18 at 22.11.40.ogg',
       avatarSrc: '',
       intro: '',
       transcript: '',

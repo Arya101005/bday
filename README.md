@@ -27,7 +27,7 @@ small tilted strips rather than one big gallery:
 
 1. Entrance — “Oru special person pirandha naal today.”
 2. Photo strip
-3. Namma friendship archive
+3. Un moonju
 4. Photo strip
 5. Moonu voice, moonu wishes
 6. Photo strip
@@ -56,7 +56,7 @@ public/
     moon/        <- MoonVenusMars_espenak_full.jpg is already here
     gift/        <- optional gift photo
   audio/
-    wishes/      <- three voice notes (aryas-wish.mp3, etc.)
+    wishes/      <- three voice notes (the three WhatsApp .ogg files are here)
     music/       <- optional background music
   video/         <- optional gift video
 ```
@@ -85,8 +85,12 @@ is just an id and a src:
 In `birthdayConfig.ts` → `voiceWishes`, set `src` for each friend:
 
 ```ts
-{ id: 'wish-1', friendName: 'Arya', src: '/audio/wishes/aryas-wish.mp3', avatarSrc: '', intro: '…', transcript: '' },
+{ id: 'wish-1', friendName: 'Arya', src: '/audio/wishes/WhatsApp Ptt 2026-10-18 at 21.05.03.ogg', avatarSrc: '', intro: '…', transcript: '' },
 ```
+
+All three notes are already wired: Arya `21.05.03.ogg`, Gaytri `22.11.40.ogg`,
+Harini `20.50.59.ogg`. Drop a new file in `public/audio/wishes/` and point the
+matching friend's `src` at it.
 
 - Only one voice note plays at a time — starting one pauses the others.
 - If the file is missing, the player shows an empty state instead of breaking.
@@ -130,20 +134,20 @@ shown in the section. To swap in a different image, change `moon.imageSrc`.
 
 ## Deploy to Vercel
 
-1. Push to GitHub:
+1. The repo is already connected — pushing is just:
    ```bash
-   git init
    git add .
-   git commit -m "THREE OF US — birthday surprise"
-   git branch -M main
-   git remote add origin https://github.com/Arya101005/website.git
-   git push -u origin main
+   git commit -m "Update content"
+   git push        # pushes the bday-main branch to main + master
    ```
+   (Remote: `https://github.com/Arya101005/bday.git`, which contains only this
+   project — no portfolio history.)
 2. Go to [vercel.com](https://vercel.com) → **Add New → Project** → import the
-   `Arya101005/website` repo.
-3. Vercel detects Vite automatically. Build command `npm run build`, output
-   directory `dist`. **No environment variables needed.**
-4. Deploy. You get a URL like `website-xxx.vercel.app`.
+   `Arya101005/bday` repo.
+3. Vercel detects Vite automatically, and [`.vercel.json`](.vercel.json) pins
+   build command `npm run build` and output directory `dist`. **No environment
+   variables needed.**
+4. Deploy. You get a URL like `bday-xxx.vercel.app`.
 
 ### After you replace photos or audio
 
@@ -181,7 +185,8 @@ better kept outside the repo or compressed first.
 - [x] Entrance renders and “Start pannuvom, vaanga!” scrolls to the archive.
 - [x] 12 photos load across 4 strips, nothing cropped, 0 broken images.
 - [x] No horizontal overflow at 390px (mobile) or on desktop.
-- [x] All three voice players show empty states (no audio uploaded yet).
+- [x] All three voice players wired to real WhatsApp `.ogg` notes (Arya,
+      Gaytri, Harini); a missing file falls back to an empty state.
 - [x] Quiz answers, scores and replay work.
 - [x] Moon reveal shows the Espenak image with date, phase and illumination.
 - [x] Letter envelope opens and the text types out.
