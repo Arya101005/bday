@@ -116,14 +116,38 @@ export const birthdayConfig = {
   /** The one place all the photos sit together, if you ever want it back. */
   memories: allPhotos,
 
-  voiceWishes: FRIEND_NAMES.map((name, i) => ({
-    id: `wish-${i + 1}`,
-    friendName: name,
-    src: '',
-    avatarSrc: '',
-    intro: '',
-    transcript: '',
-  })) as VoiceWish[],
+  /**
+   * Real voice notes. Point `src` at a file in public/audio/wishes/.
+   * Two WhatsApp voice notes are wired in below; the third friend still
+   * shows a clean "not uploaded yet" state until you add hers.
+   * (Which friend sent which note? Swap the two `src` lines if needed.)
+   */
+  voiceWishes: [
+    {
+      id: 'wish-1',
+      friendName: 'Arya',
+      src: '/audio/wishes/WhatsApp Ptt 2026-10-18 at 21.05.03.ogg',
+      avatarSrc: '',
+      intro: '',
+      transcript: '',
+    },
+    {
+      id: 'wish-2',
+      friendName: 'Gaytri',
+      src: '', // drop her note in public/audio/wishes/ and set the path here
+      avatarSrc: '',
+      intro: '',
+      transcript: '',
+    },
+    {
+      id: 'wish-3',
+      friendName: 'Harini',
+      src: '/audio/wishes/WhatsApp Ptt 2026-10-18 at 20.50.59.ogg',
+      avatarSrc: '',
+      intro: '',
+      transcript: '',
+    },
+  ] as VoiceWish[],
 
   quiz: {
     title: 'The friendship challenge',
@@ -195,11 +219,23 @@ export const birthdayConfig = {
     greeting: 'Hey Sam,',
     intro:
       'Naanga weeks-a dhaan idha plan pannitom. Ezhuthuradhhu exams-ai vida kammi tension-a irundhudhu. So idhu honest version.',
-    paragraphs: FRIEND_NAMES.map((name) => ({
-      id: `letter-${name.toLowerCase().replace(/\s+/g, '-')}`,
-      author: name,
-      text: `This is ${name}'s paragraph. Replace it in birthdayConfig.ts with something real — a memory, an inside joke, a small thing you have never actually said out loud. Short is fine. Honest is better.`,
-    })),
+    paragraphs: [
+      {
+        id: 'letter-arya',
+        author: 'Arya',
+        text: 'ennai manika kekrathuke kashtama tha iruku irunthalum intha anan ah maithu kolungal happy bday inime vachu olunga pesa try panren',
+      },
+      {
+        id: 'letter-gaytri',
+        author: 'Gaytri',
+        text: `This is Gaytri's paragraph. Replace it in birthdayConfig.ts with something real — a memory, an inside joke, a small thing you have never actually said out loud.`,
+      },
+      {
+        id: 'letter-harini',
+        author: 'Harini',
+        text: `This is Harini's paragraph. Replace it in birthdayConfig.ts with something real — a memory, an inside joke, a small thing you have never actually said out loud.`,
+      },
+    ],
     closing:
       'Happy birthday da. Eppadi ponalum, phone-a pick panna rendu per ready-a iruppodhu nu nenaichuuko.',
     signatures: FRIEND_NAMES,
