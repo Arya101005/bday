@@ -232,7 +232,7 @@ export const birthdayConfig = {
       {
         id: 'letter-harini',
         author: 'Harini',
-        text: `This is Harini's paragraph. Replace it in birthdayConfig.ts with something real — a memory, an inside joke, a small thing you have never actually said out loud.`,
+        text: 'Happy happyy birthdayyyy sammmm wishing a very healthy n wealthy life and elaame nenachudhu nadakatum will always be there for youuu and hope this bond stays forever💗😚🫂',
       },
     ],
     closing:
