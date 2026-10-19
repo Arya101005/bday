@@ -800,6 +800,8 @@
   margin-bottom: 14px;
   font-size: 1rem;
   line-height: 1.75;
+  /* honour the line breaks friends type into their paragraphs */
+  white-space: pre-line;
 }
 
 .letter__author {
